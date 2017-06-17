@@ -1,0 +1,58 @@
+{
+  "name": "react-express-boilerplate",
+  "description": "Boilerplate for a React project running with an Express server",
+  "scripts": {
+    "build": "webpack",
+    "lint": "eslint . --ignore-path .gitignore",
+    "serve": "node ./server",
+    "start": "npm run serve",
+    "test": "NODE_ENV=test jest",
+    "test:watch": "npm test -- --watch",
+    "test:coverage": "npm test -- --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mesiu/react-express-boilerplate.git"
+  },
+  "author": "Melissa Siu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mesiu/react-express-boilerplate/issues"
+  },
+  "homepage": "https://github.com/mesiu/react-express-boilerplate#readme",
+  "dependencies": {
+    "compression": "1.6.2",
+    "express": "4.15.3",
+    "prop-types": "15.5.10",
+    "react": "15.5.4",
+    "react-dom": "15.5.4",
+    "react-hot-loader": "3.0.0-beta.7",
+    "react-redux": "5.0.5",
+    "react-router-dom": "4.1.1",
+    "redux": "3.6.0",
+    "winston": "2.3.1"
+  },
+  "devDependencies": {
+    "babel-core": "6.24.1",
+    "babel-loader": "7.0.0",
+    "babel-plugin-transform-object-rest-spread": "6.23.0",
+    "babel-preset-env": "1.5.0",
+    "babel-preset-react": "6.24.1",
+    "babel-register": "6.24.1",
+    "css-loader": "0.28.3",
+    "eslint": "3.19.0",
+    "eslint-config-airbnb": "15.0.1",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-jsx-a11y": "5.0.3",
+    "eslint-plugin-react": "7.0.1",
+    "extract-text-webpack-plugin": "2.1.0",
+    "html-webpack-plugin": "2.28.0",
+    "jest": "20.0.4",
+    "postcss-cssnext": "2.11.0",
+    "postcss-loader": "2.0.5",
+    "style-loader": "0.18.1",
+    "webpack": "2.5.1",
+    "webpack-dev-middleware": "1.10.2",
+    "webpack-hot-middleware": "2.18.0"
+  }
+}
