@@ -7,6 +7,9 @@ import { Provider } from 'react-redux';
 
 import App from './components/App/App';
 import store from './store/store';
+import getPeople from './actions/people';
+
+store.dispatch(getPeople());
 
 const render = (Component) => {
   ReactDOM.render(
