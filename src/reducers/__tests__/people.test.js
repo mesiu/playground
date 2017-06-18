@@ -1,5 +1,5 @@
 import * as types from '../../constants/actionTypes';
-import reducer from '../people';
+import reducer, { getPerson, sortByPopularity } from '../people';
 
 describe('people reducer', () => {
   it('should return the initial state', () => {
@@ -156,5 +156,78 @@ describe('people reducer', () => {
     };
 
     expect(reducer(state, action)).toEqual(nextState);
+  });
+
+  describe('getPerson()', () => {
+    it('should return a person by their ID', () => {
+      const id = 'luke-skywalker';
+
+      const state = [
+        {
+          id: 'darth-vader',
+        },
+        {
+          id: 'luke-skywalker',
+        },
+      ];
+
+      const nextState = {
+        id: 'luke-skywalker',
+      };
+
+      expect(getPerson(state, id)).toEqual(nextState);
+    });
+  });
+
+  describe('sortByPopularity()', () => {
+    it('should sort people by their number of votes', () => {
+      const state = [
+        {
+          id: 'luke-skywalker',
+          votes: 2,
+        },
+        {
+          id: 'darth-vader',
+          votes: -1,
+        },
+        {
+          id: 'r2-d2',
+          votes: 6,
+        },
+        {
+          id: 'c-3po',
+          votes: 0,
+        },
+        {
+          id: 'obi-wan-kenobi',
+          votes: 0,
+        },
+      ];
+
+      const nextState = [
+        {
+          id: 'r2-d2',
+          votes: 6,
+        },
+        {
+          id: 'luke-skywalker',
+          votes: 2,
+        },
+        {
+          id: 'c-3po',
+          votes: 0,
+        },
+        {
+          id: 'obi-wan-kenobi',
+          votes: 0,
+        },
+        {
+          id: 'darth-vader',
+          votes: -1,
+        },
+      ];
+
+      expect(sortByPopularity(state)).toEqual(nextState);
+    });
   });
 });
