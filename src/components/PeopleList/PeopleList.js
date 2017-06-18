@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import PeopleListItem from './PeopleListItem';
+import SearchContainer from '../../containers/SearchContainer/SearchContainer';
 
 const propTypes = {
   people: PropTypes.array.isRequired,
@@ -10,6 +11,7 @@ const propTypes = {
 const PeopleList = ({ people }) => {
   return (
     <div>
+      <SearchContainer />
       <ul>
         {people.map((person) => {
           return <PeopleListItem key={person.id} person={person} />;

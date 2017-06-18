@@ -4,3 +4,5 @@ export const GET_PEOPLE_FAILURE = 'GET_PEOPLE_FAILURE';
 
 export const VOTE_UP = 'VOTE_UP';
 export const VOTE_DOWN = 'VOTE_DOWN';
+
+export const FILTER_RESULTS = 'FILTER_RESULTS';
