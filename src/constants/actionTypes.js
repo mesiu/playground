@@ -6,3 +6,5 @@ export const VOTE_UP = 'VOTE_UP';
 export const VOTE_DOWN = 'VOTE_DOWN';
 
 export const FILTER_RESULTS = 'FILTER_RESULTS';
+
+export const COMMENTS_ADD = 'COMMENTS_ADD';

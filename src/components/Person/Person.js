@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import VotingContainer from '../../containers/VotingContainer/VotingContainer';
+import CommentsContainer from '../../containers/CommentsContainer/CommentsContainer';
 
 const propTypes = {
   person: PropTypes.shape({
@@ -38,6 +39,7 @@ const Person = ({ person }) => {
         <dt>Skin Color</dt>
         <dd>{person.skin_color}</dd>
       </dl>
+      <CommentsContainer id={person.id} />
     </div>
   );
 };
