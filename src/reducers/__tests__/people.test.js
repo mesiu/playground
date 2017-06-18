@@ -51,6 +51,8 @@ describe('people reducer', () => {
         {
           id: 'luke-skywalker',
           name: 'Luke Skywalker',
+          votes: 0,
+          votesTotal: 0,
         },
       ],
     };
@@ -73,6 +75,84 @@ describe('people reducer', () => {
     const nextState = {
       isFetching: false,
       error: message,
+    };
+
+    expect(reducer(state, action)).toEqual(nextState);
+  });
+
+  it('should handle VOTE_UP action', () => {
+    const action = {
+      type: types.VOTE_UP,
+      id: 'luke-skywalker',
+    };
+
+    const state = {
+      people: [
+        {
+          id: 'darth-vader',
+          votes: 0,
+          votesTotal: 0,
+        },
+        {
+          id: 'luke-skywalker',
+          votes: 0,
+          votesTotal: 0,
+        },
+      ],
+    };
+
+    const nextState = {
+      people: [
+        {
+          id: 'darth-vader',
+          votes: 0,
+          votesTotal: 0,
+        },
+        {
+          id: 'luke-skywalker',
+          votes: 1,
+          votesTotal: 1,
+        },
+      ],
+    };
+
+    expect(reducer(state, action)).toEqual(nextState);
+  });
+
+  it('should handle VOTE_DOWN action', () => {
+    const action = {
+      type: types.VOTE_DOWN,
+      id: 'luke-skywalker',
+    };
+
+    const state = {
+      people: [
+        {
+          id: 'darth-vader',
+          votes: 0,
+          votesTotal: 0,
+        },
+        {
+          id: 'luke-skywalker',
+          votes: 0,
+          votesTotal: 0,
+        },
+      ],
+    };
+
+    const nextState = {
+      people: [
+        {
+          id: 'darth-vader',
+          votes: 0,
+          votesTotal: 0,
+        },
+        {
+          id: 'luke-skywalker',
+          votes: -1,
+          votesTotal: 1,
+        },
+      ],
     };
 
     expect(reducer(state, action)).toEqual(nextState);

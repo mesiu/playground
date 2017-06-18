@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
+import VotingContainer from '../../containers/VotingContainer/VotingContainer';
+
 const propTypes = {
   person: PropTypes.shape({
     birth_year: PropTypes.string.isRequired,
@@ -19,6 +21,7 @@ const Person = ({ person }) => {
     <div>
       <Link to="/">Back</Link>
       <h1>{person.name}</h1>
+      <VotingContainer id={person.id} />
       <dl>
         <dt>Birth year</dt>
         <dd>{person.birth_year}</dd>

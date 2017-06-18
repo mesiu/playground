@@ -5,6 +5,32 @@ const initialState = {
   people: [],
 };
 
+const person = (state = {}, action) => {
+  switch (action.type) {
+    case types.GET_PEOPLE_SUCCESS:
+      return {
+        ...state,
+        id: state.name.toLowerCase().replace(' ', '-'),
+        votes: 0,
+        votesTotal: 0,
+      };
+    case types.VOTE_UP:
+      return {
+        ...state,
+        votes: state.votes + 1,
+        votesTotal: state.votesTotal + 1,
+      };
+    case types.VOTE_DOWN:
+      return {
+        ...state,
+        votes: state.votes - 1,
+        votesTotal: state.votesTotal + 1,
+      };
+    default:
+      return state;
+  }
+};
+
 const people = (state = initialState, action) => {
   switch (action.type) {
     case types.GET_PEOPLE_REQUEST:
@@ -17,11 +43,7 @@ const people = (state = initialState, action) => {
         ...state,
         isFetching: false,
         people: action.response.results.map((result) => {
-          const id = result.name.toLowerCase().replace(' ', '-');
-          return {
-            ...result,
-            id,
-          };
+          return person(result, action);
         }),
       };
     case types.GET_PEOPLE_FAILURE:
@@ -30,14 +52,26 @@ const people = (state = initialState, action) => {
         isFetching: false,
         error: action.message,
       };
+    case types.VOTE_UP:
+    case types.VOTE_DOWN:
+      return {
+        ...state,
+        people: state.people.map((result) => {
+          if (result.id !== action.id) {
+            return result;
+          }
+
+          return person(result, action);
+        }),
+      };
     default:
       return state;
   }
 };
 
 const getPerson = (state = [], id) => {
-  return state.find((person) => {
-    return person.id === id;
+  return state.find((p) => {
+    return p.id === id;
   });
 };
 

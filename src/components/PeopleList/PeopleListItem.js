@@ -6,6 +6,7 @@ const propTypes = {
   person: PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
+    votes: PropTypes.number.isRequired,
   }).isRequired,
 };
 
@@ -15,6 +16,7 @@ const PeopleListItem = ({ person }) => {
       <h2>
         <Link to={`/${person.id}`}>{person.name}</Link>
       </h2>
+      <p>{person.votes} vote{person.votes !== 1 ? 's' : ''}</p>
     </li>
   );
 };
