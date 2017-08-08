@@ -1,0 +1,41 @@
+.item {
+  background: #222;
+  display: block;
+  flex: 1 0 25%;
+  margin: 0 0.5rem 1rem;
+  padding: 0;
+}
+
+.title {
+  margin: 0 0 2rem;
+}
+
+.link {
+  border-top: 3px solid #333;
+  color: #FFF;
+  display: block;
+  padding: 1rem;
+  position: relative;
+  text-decoration: none;
+
+  &:before {
+    background: #FC0;
+    content: "";
+    display: block;
+    height: 3px;
+    width: 0;
+    position: absolute;
+    top: -3px;
+    left: 0;
+    transition: width 0.2s ease-in;
+  }
+
+  &:hover:before {
+    width: 100%;
+  }
+}
+
+.details {
+  font-size: 80%;
+  margin: 0;
+}

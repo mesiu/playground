@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import styles from './commentForm.css';
+
 const propTypes = {
   id: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
@@ -25,9 +27,9 @@ class CommentForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input name="comment" ref={(c) => { this.input = c; }} />
-        <button type="submit">Add comment</button>
+      <form className={styles.form} onSubmit={this.handleSubmit}>
+        <input className={styles.input} name="comment" ref={(c) => { this.input = c; }} />
+        <button className={styles.button} type="submit">Add comment</button>
       </form>
     );
   }

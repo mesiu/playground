@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import PeopleListItem from './PeopleListItem';
 import SearchContainer from '../../containers/SearchContainer/SearchContainer';
 
+import styles from './peopleList.css';
+
 const propTypes = {
   people: PropTypes.array.isRequired,
 };
@@ -12,9 +14,9 @@ const PeopleList = ({ people }) => {
   return (
     <div>
       <SearchContainer />
-      <ul>
+      <ul className={styles.list}>
         {people.map((person) => {
-          return <PeopleListItem key={person.id} person={person} />;
+          return <PeopleListItem className={styles.listItem} key={person.id} person={person} />;
         })}
       </ul>
     </div>

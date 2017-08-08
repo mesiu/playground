@@ -1,0 +1,13 @@
+.list {
+  list-style: none;
+  margin: 0 -0.5rem;
+  padding: 0;
+}
+
+@media (min-width: 600px) {
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
